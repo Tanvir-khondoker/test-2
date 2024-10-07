@@ -11,7 +11,8 @@ const port = 3000;
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    var a = 10;
+    res.send(a);
 });
 console.log(process.cwd());
 exports.default = app;
