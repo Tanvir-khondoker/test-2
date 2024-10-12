@@ -1,6 +1,7 @@
 import globals from "globals";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser"; // Import the TypeScript parser
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'; // Import Prettier plugin
 
 export default [
   // Ignored files or directories
@@ -23,12 +24,12 @@ export default [
       "@typescript-eslint": tseslint, // Register the TypeScript ESLint plugin
     },
     rules: {
-      "no-unused-vars": "error",         // Error on unused variables
+      'no-unused-expressions':'error',         // Error on unused variables
       "no-unused-expressions": "error",   // Error on unused expressions
       "prefer-const": "error",            // Prefer const where possible
       "no-console": "warn",                // Warn on console logs
       "no-undef": "error",                  // Error on undefined variables
-      "no-var":"error"
+      "no-var": "error",                   // Error on usage of var
     },
   },
 
@@ -39,4 +40,7 @@ export default [
       sourceType: "commonjs", // Use CommonJS modules for .js files
     },
   },
+
+  // Prettier configuration to disable conflicting rules
+  eslintPluginPrettierRecommended, // Add Prettier at the end to disable conflicting rules
 ];

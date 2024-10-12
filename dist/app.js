@@ -9,9 +9,8 @@ const app = (0, express_1.default)();
 // parsers
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
-app.get("/", (req, res) => {
-    const a = 10;
+app.get('/', (req, res) => {
+    const a = 'From Root of the first application';
     res.send(a);
 });
-console.log(process.cwd());
 exports.default = app;
