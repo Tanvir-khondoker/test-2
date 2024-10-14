@@ -5,12 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+const student_route_1 = require("./app/modules/student/student.route");
 const app = (0, express_1.default)();
 // parsers
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
-app.get('/', (req, res) => {
-    const a = 'From Root of the first application';
-    res.send(a);
-});
+// application routes
+app.use('/api/v1/students', student_route_1.StudentRoutes);
+// const getAController = (req: Request, res: Response) => {
+//   const a = 'From Root of the first application';
+//   res.send(a);
+// };
+// app.get('/', getAController);
 exports.default = app;
